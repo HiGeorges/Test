@@ -32,10 +32,11 @@
                                                 <td class="p-3">{{this.id}}</td>
                                                 <td class="p-3">{{this.name}}</td>
                                                 <td class="p-3">{{this.priceHt}}</td>
-                                                <td class="p-3">
+                                                <td class="p-3 flex gap-2">
                                                         <a href="/product/edit/{{this.id}}"
                                                                 class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Éditer</a>
-                                                        <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Supprimer</button>
+                                                        <button onclick="openModal('{{this.id}}', '{{this.name}}')"
+                                                                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Supprimer</button>
                                                 </td>
                                         </tr>
                                         {{/each}}
@@ -43,6 +44,52 @@
                         </table>
                 </div>
         </div>
+
+
+<div id="deleteModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50 hidden">
+        <div class="bg-white rounded-lg p-6 w-1/2">
+                <input type="hidden" id="deleteModalProductId" value="{{this.id}}">
+                <p class="text-lg font-semibold mb-4">Êtes-vous sûr de vouloir supprimer ce produit ?</p>
+                <div class="flex justify-end gap-4">
+                        <button onclick="deleteProduct()"
+                                class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Oui, très sûr</button>
+                        <button onclick="closeModal()"
+                                class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">Annuler</button>
+                </div>
+        </div>
+</div>
+
+
+        <script>
+                function openModal(id, name) {
+                        document.getElementById('deleteModalProductId').value = id;
+                        document.getElementById('deleteModal').classList.remove('hidden');
+                }
+
+                function closeModal() {
+                        document.getElementById('deleteModal').classList.add('hidden');
+                }
+
+                function deleteProduct() {
+                        const productId = document.getElementById('deleteModalProductId').value;
+                        closeModal();
+
+                        fetch(`/product/delete/${productId}`, {
+                                method: 'POST',
+                        })
+                                .then(response => {
+                                        if (response.ok) {
+                                                window.location.reload();
+                                        } else {
+                                                console.error('La suppression du produit a échoué');
+                                        }
+                                })
+                                .catch(error => {
+                                        console.error('Une erreur s\'est produite lors de la suppression du produit :', error);
+                                });
+                }
+        </script>
+
 </body>
 
 </html>

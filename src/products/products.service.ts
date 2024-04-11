@@ -19,11 +19,14 @@ export class ProductsService {
   }
 
   async findOne(id: string): Promise<Product> {
-    return this.productRepository.findOne({ where: { id } })
-
+    return this.productRepository.findOne({ where: { id } });
   }
 
   async update(id: string, updateProductDto: UpdateProductDto): Promise<void> {
     await this.productRepository.update(id, updateProductDto);
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.productRepository.delete(id);
   }
 }
