@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Liste des produits</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 p-10">
+        <div class="max-w-4xl mx-auto bg-white rounded-lg overflow-hidden">
+                <div class="p-4">
+                        <h1 class="text-lg font-semibold text-gray-700">Liste des produits</h1>
+                        <div class="mb-4">
+                                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                                        <a href="/product/new">Ajouter un produit</a>
+                                </button>
+                        </div>
+                        <table class="w-full mt-5 table-auto">
+                                <thead>
+                                        <tr class="bg-gray-100 text-left">
+                                                <th class="p-3">ID</th>
+                                                <th class="p-3">Nom</th>
+                                                <th class="p-3">Prix HT</th>
+                                                <th class="p-3">Actions</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {{#each products}}
+                                        <tr class="border-b">
+                                                <td class="p-3">{{this.id}}</td>
+                                                <td class="p-3">{{this.name}}</td>
+                                                <td class="p-3">{{this.priceHt}}</td>
+                                                <td class="p-3">
+                                                        <button
+                                                                class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Éditer</button>
+                                                        <button
+                                                                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Supprimer</button>
+                                                </td>
+                                        </tr>
+                                        {{/each}}
+                                </tbody>
+                        </table>
+                </div>
+        </div>
+</body>
+
+</html>
