@@ -12,7 +12,11 @@
         <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-lg">
                 <div class="md:flex">
                         <div class="w-full p-3">
-                                <h1 class="text-lg font-semibold text-gray-700">Ajouter un nouveau produit</h1>
+                                <!-- Entête -->
+                                <div class="text-center mb-5">
+                                        <h1 class="text-lg font-semibold text-gray-700">Ajouter un nouveau produit</h1>
+                                        <p class="text-sm text-gray-500">Veuillez remplir le formulaire ci-dessous pour ajouter un nouveau produit.</p>
+                                </div>
                                 <form action="/product/new" method="POST" class="space-y-5 mt-5">
                                         <div>
                                                 <label for="name" class="text-sm font-medium text-gray-700">Nom du
@@ -36,6 +40,8 @@
                                         <button type="submit"
                                                 class="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Ajouter</button>
                                 </form>
+                                <a href="/product" class="block text-center mt-5 text-sm text-blue-500 hover:text-blue-700">Retourner à la liste des
+                                        produits</a>
                         </div>
                 </div>
         </div>
