@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modifier le produit</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 p-10">
+        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-lg">
+                <div class="md:flex">
+                        <div class="w-full p-3">
+                                <h1 class="text-lg font-semibold text-gray-700">Modifier le produit</h1>
+                                <form action="/product/edit/{{ product.id }}" method="POST" class="space-y-5 mt-5">
+                                        <div>
+                                                <label for="name" class="text-sm font-medium text-gray-700">Nom du
+                                                        produit</label>
+                                                <input type="text" id="name" name="name" value="{{ product.name }}"
+                                                        class="w-full mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        </div>
+
+                                        <div>
+                                                <label for="priceHt" class="text-sm font-medium text-gray-700">Prix
+                                                        HT</label>
+                                                <input type="number" id="priceHt" name="priceHt"
+                                                        value="{{ product.priceHt }}"
+                                                        class="w-full mt-2 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        </div>
+
+
+                                        <button type="submit"
+                                                class="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Modifier</button>
+                                </form>
+                        </div>
+                </div>
+        </div>
+</body>
+
+</html>

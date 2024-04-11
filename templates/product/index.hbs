@@ -33,10 +33,9 @@
                                                 <td class="p-3">{{this.name}}</td>
                                                 <td class="p-3">{{this.priceHt}}</td>
                                                 <td class="p-3">
-                                                        <button
-                                                                class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Éditer</button>
-                                                        <button
-                                                                class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Supprimer</button>
+                                                        <a href="/product/edit/{{this.id}}"
+                                                                class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Éditer</a>
+                                                        <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Supprimer</button>
                                                 </td>
                                         </tr>
                                         {{/each}}
